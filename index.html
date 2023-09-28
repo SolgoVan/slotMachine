@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Slot machine</title>
+</head>
+
+<body>
+    <main class="main-slot">
+        <section id="status">Bienvenue!</section>
+        <section id="Slots">
+            <div id="slot1" class="a1"></div>
+            <div id="slot2" class="a1"></div>
+            <div id="slot3" class="a1"></div>
+        </section>
+        <section onclick="doSlot()" id="Gira">LANCER !</section>
+        <section id="options">
+            <div id="gain"></div>
+            <div id="credit"></div>
+        </section>
+    </main>
+    
+    <script>
+        var doing = false;
+        /*var spin = [new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3")];
+        var coin = [new Audio("res/sounds/coin.mp3"), new Audio("res/sounds/coin.mp3"), new Audio("res/sounds/coin.mp3")]
+        var win = new Audio("res/sounds/win.mp3");
+        var lose = new Audio("res/sounds/lose.mp3");
+        var audio = false;*/
+        let status = document.getElementById("status")
+        var info = true;
+        let credit = 100;
+        updateCredit();
+
+        function updateCredit(){
+            const credits = document.getElementById("credit");
+            credits.innerHTML = `<h2>Vos crédits : ${credit}</h2>`;
+}
+
+        function doSlot() {
+            credit = credit - 1;
+            updateCredit();
+            if (doing) { return null; }
+            doing = true;
+            var numChanges = randomInt(1, 4) * 7
+            var numeberSlot1 = numChanges + randomInt(1, 7)
+            var numeberSlot2 = numChanges + 2 * 7 + randomInt(1, 7)
+            var numeberSlot3 = numChanges + 4 * 7 + randomInt(1, 7)
+
+            var i1 = 0;
+            var i2 = 0;
+            var i3 = 0;
+            /*var sound = 0*/
+            status.innerHTML = "JEU EN COURS"
+            slot1 = setInterval(spin1, 50);
+            slot2 = setInterval(spin2, 50);
+            slot3 = setInterval(spin3, 50);
+            function spin1() {
+                i1++;
+                if (i1 >= numeberSlot1) {
+                    /*coin[0].play()*/
+                    clearInterval(slot1);
+                    return null;
+                }
+                slotTile = document.getElementById("slot1");
+                if (slotTile.className == "a9") {
+                    slotTile.className = "a0";
+                }
+                slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
+            }
+            function spin2() {
+                i2++;
+                if (i2 >= numeberSlot2) {
+                    /*coin[1].play()*/
+                    clearInterval(slot2);
+                    return null;
+                }
+                slotTile = document.getElementById("slot2");
+                if (slotTile.className == "a9") {
+                    slotTile.className = "a0";
+                }
+                slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
+            }
+            function spin3() {
+                i3++;
+                if (i3 >= numeberSlot3) {
+                    /*coin[2].play()*/
+                    clearInterval(slot3);
+                    testWin();
+                    return null;
+                }
+                slotTile = document.getElementById("slot3");
+                if (slotTile.className == "a9") {
+                    slotTile.className = "a0";
+                }
+                /*sound++;
+                if (sound == spin.length) {
+                    sound = 0;
+                }
+                spin[sound].play();*/
+                slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
+            }
+        }
+
+        function testWin() {
+            var slot1 = document.getElementById("slot1").className
+            var slot2 = document.getElementById("slot2").className
+            var slot3 = document.getElementById("slot3").className
+            const gain = document.getElementById("gain");
+            var coin = 0;
+
+            if((slot1 == "a1" && slot2 == "a1" && slot3 !== "a1") || (slot1 == "a1" && slot3 == "a1" && slot2 !== "a1") || (slot2 == "a1" && slot3 == "a1" && slot1 !== "a1"))  {
+                status.innerHTML = "Gain 10 coins";
+                coin = 10;
+            } 
+            else if (slot1 == "a1" && slot2 == "a1" && slot3 == "a1") {
+                status.innerHTML = "Gain 20 coins";
+                coin = 100;
+            }
+            else if ((slot1 == "a2" && slot2 == "a2" && slot3 !== "a2") || (slot1 == "a2" && slot3 == "a2" && slot2 !== "a2") || (slot2 == "a2" && slot3 == "a2" && slot1 !== "a2")) {
+                status.innerHTML = "Gain petite cerise";
+                coin = 20;
+            }
+            else if (slot1 == "a2" && slot2 == "a2" && slot3 == "a2") {
+                status.innerHTML = "Gain grosse cerise";
+                coin = 200;
+            }
+            else if ((slot1 == "a3" && slot2 == "a3" && slot3 !== "a3") || (slot1 == "a3" && slot3 == "a3" && slot2 !== "a3") || (slot2 == "a3" && slot3 == "a3" && slot1 !== "a3")) {
+                status.innerHTML = "Gain petite pièce";
+                coin = 30;
+            }
+            else if (slot1 == "a3" && slot2 == "a3" && slot3 == "a3") {
+                status.innerHTML = "Gain grosse pièce";
+                coin = 300;
+            }
+            else if ((slot1 == "a4" && slot2 == "a4" && slot3 !== "a4") || (slot1 == "a4" && slot3 == "a4" && slot2 !== "a4") || (slot2 == "a4" && slot3 == "a4" && slot1 !== "a4")) {
+                status.innerHTML = "Gain petite couronne";
+                coin = 40;
+            }
+            else if (slot1 == "a4" && slot2 == "a4" && slot3 == "a4") {
+                status.innerHTML = "Gain grosse couronne";
+                coin = 400;
+            }
+            else if ((slot1 == "a5" && slot2 == "a5" && slot3 !== "a5") || (slot1 == "a5" && slot3 == "a5" && slot2 !== "a5") || (slot2 == "a5" && slot3 == "a5" && slot1 !== "a5")) {
+                status.innerHTML = "Gain petite diamant";
+                coin = 50;
+            }
+            else if (slot1 == "a5" && slot2 == "a5" && slot3 == "a5") {
+                status.innerHTML = "Gain grosse diamant";
+                coin = 500;
+            }
+            else if ((slot1 == "a6" && slot2 == "a6" && slot3 !== "a6") || (slot1 == "a6" && slot3 == "a6" && slot2 !== "a6") || (slot2 == "a6" && slot3 == "a6" && slot1 !== "a6")) {
+                status.innerHTML = "Gain petite coeur";
+                coin = 75;
+            }
+            else if (slot1 == "a6" && slot2 == "a6" && slot3 == "a6") {
+                status.innerHTML = "Gain grosse coeur";
+                coin = 750;
+            }
+            else if ((slot1 == "a7" && slot2 == "a7" && slot3 !== "a7") || (slot1 == "a7" && slot3 == "a7" && slot2 !== "a7") || (slot2 == "a7" && slot3 == "a7" && slot1 !== "a7")) {
+                status.innerHTML = "Gain petite tete";
+                coin = 100;
+            }
+            else if (slot1 == "a7" && slot2 == "a7" && slot3 == "a7") {
+                status.innerHTML = "Gain grosse tete";
+                coin = 1000;
+            }
+            else if ((slot1 == "a8" && slot2 == "a8" && slot3 !== "a8") || (slot1 == "a8" && slot3 == "a8" && slot2 !== "a8") || (slot2 == "a8" && slot3 == "a8" && slot1 !== "a8")) {
+                status.innerHTML = "Gain petite étoile";
+                coin = 250;
+            }
+            else if (slot1 == "a8" && slot2 == "a8" && slot3 == "a8") {
+                status.innerHTML = "Gain grosse étoile";
+                coin = 2500;
+            }
+            else if ((slot1 == "a9" && slot2 == "a9" && slot3 !== "a9") || (slot1 == "a9" && slot3 == "a9" && slot2 !== "a9") || (slot2 == "a9" && slot3 == "a9" && slot1 !== "a9")) {
+                status.innerHTML = "Gain petite Jackpot";
+                coin = 1000;
+            }
+            else if (slot1 == "a9" && slot2 == "a9" && slot3 == "a9") {
+                status.innerHTML = "JACKPOT";
+                coin = 10000;
+            } 
+            else {
+                status.innerHTML = "PERDU!";
+                
+            }
+            gain.innerHTML = `<h2>Gain ${coin}</h2>`;
+            credit = credit + coin;
+            updateCredit();
+            doing = false;
+            
+        }
+
+        /*function toggleAudio() {
+            if (!audio) {
+                audio = !audio;
+                for (var x of spin) {
+                    x.volume = 0.5;
+                }
+                for (var x of coin) {
+                    x.volume = 0.5;
+                }
+                win.volume = 1.0;
+                lose.volume = 1.0;
+            } else {
+                audio = !audio;
+                for (var x of spin) {
+                    x.volume = 0;
+                }
+                for (var x of coin) {
+                    x.volume = 0;
+                }
+                win.volume = 0;
+                lose.volume = 0;
+            }
+            document.getElementById("audio").src = "res/icons/audio" + (audio ? "On" : "Off") + ".png";
+        }*/
+
+        function randomInt(min, max) {
+            return Math.floor((Math.random() * (max - min + 1)) + min);
+        }
+
+    </script>
+</body>
+
+</html>
