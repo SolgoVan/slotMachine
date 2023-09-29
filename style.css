@@ -14,28 +14,34 @@ body{
 	background-color: #424242;
 	font-family: 'Roboto', sans-serif;
 }
-.main-slot{
-	border-radius: 5px;
-	background-color: #EF5350;
-	margin-top: 30px;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-left: calc((100% - 580px) / 2);
-	width: 580px;
-}
-
-.main-table{
+.main-slot,
+.main-table {
     border-radius: 5px;
     background-color: #EF5350;
     margin-top: 30px;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-left: 15px;
-	padding-right: 15px;
-	margin-left: calc((100% - 880px) / 2);
-	width: 880px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 580px; /* Largeur de base pour les écrans plus larges */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px){
+	.main-slot,
+	.main-table {
+		width: 90%;
+	}
+}
+
+@media (max-width: 480px){
+	.main-slot,
+	.main-table {
+		width: 100%;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
 }
 
 section#status{
