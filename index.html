@@ -18,31 +18,201 @@
             <div id="slot3" class="a1"></div>
         </section>
         <section onclick="doSlot()" id="Gira">LANCER !</section>
-        <section id="options">
+        <section id="options" class="option">
             <div id="gain"></div>
             <div id="credit"></div>
+            <div id="betSelect">
+                <select name="bet" id="bet">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="1000">1000</option>
+                </select>
+            </div>
+            <div><a href="#" role="button" id="modalButton" data-target="#modal" data-toogle="modal">Info</a></div>
         </section>
     </main>
     
+    <!--Modal d'information-->
+    <div class="modal" id="modal" role="dialog">
+        <div class="modal-content">
+            <div class="modal-close" data-dismiss="dialog">X</div>
+            <div class="modal-header">
+                <h2>Liste des gains</h2>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <td>
+                            <div>
+                                <img src="img/bell.png" alt="" width="25px">+<img src="img/bell.png" alt="" width="25px">
+                            </div>
+                            <div>x 1</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/bell.png" alt="" width="25px">+<img src="img/bell.png" alt="" width="25px">+<img src="img/bell.png" alt="" width="25px">
+                            </div>
+                            <div>x 5</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/cerises.png" alt="" width="25px">+<img src="img/cerises.png" alt="" width="25px">
+                            </div>
+                            <div>x 2</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/cerises.png" alt="" width="25px">+<img src="img/cerises.png" alt="" width="25px">+<img src="img/cerises.png" alt="" width="25px">
+                            </div>
+                            <div>x 10</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/coin.png" alt="" width="25px">+<img src="img/coin.png" alt="" width="25px">
+                            </div>
+                            <div>x 5</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/coin.png" alt="" width="25px">+<img src="img/coin.png" alt="" width="25px">+<img src="img/coin.png" alt="" width="25px">
+                            </div>
+                            <div>x 25</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <img src="img/crown.png" alt="" width="25px">+<img src="img/crown.png" alt="" width="25px">
+                            </div>
+                            <div>x 10</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/crown.png" alt="" width="25px">+<img src="img/crown.png" alt="" width="25px">+<img src="img/crown.png" alt="" width="25px">
+                            </div>
+                            <div>x 50</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/diamant.png" alt="" width="25px">+<img src="img/diamant.png" alt="" width="25px">
+                            </div>
+                            <div>x 15</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/diamant.png" alt="" width="25px">+<img src="img/diamant.png" alt="" width="25px">+<img src="img/diamant.png" alt="" width="25px">
+                            </div>
+                            <div>x 75</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/heart.png" alt="" width="25px">+<img src="img/heart.png" alt="" width="25px">
+                            </div>
+                            <div>x 25</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/heart.png" alt="" width="25px">+<img src="img/heart.png" alt="" width="25px">+<img src="img/heart.png" alt="" width="25px">
+                            </div>
+                            <div>x 100</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <img src="img/skull.png" alt="" width="25px">+<img src="img/skull.png" alt="" width="25px">
+                            </div>
+                            <div>x 50</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/skull.png" alt="" width="25px">+<img src="img/skull.png" alt="" width="25px">+<img src="img/skull.png" alt="" width="25px">
+                            </div>
+                            <div>x 200</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/star.png" alt="" width="25px">+<img src="img/star.png" alt="" width="25px">
+                            </div>
+                            <div>x 100</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/star.png" alt="" width="25px">+<img src="img/star.png" alt="" width="25px">+<img src="img/star.png" alt="" width="25px">
+                            </div>
+                            <div>x 500</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/7.png" alt="" width="25px">+<img src="img/7.png" alt="" width="25px">
+                            </div>
+                            <div>x 250</div>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="img/7.png" alt="" width="25px">+<img src="img/7.png" alt="" width="25px">+<img src="img/7.png" alt="" width="25px">
+                            </div>
+                            <div>x 1000</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-close" role="button" data-dismiss="dialog">Close</a>
+            </div>
+        </div>
+    </div>
+
     <script>
+        /* Modal d'information des gain*/
+        const modalButton = document.getElementById("modalButton");
+        modalButton.addEventListener("click", function(e){
+            e.preventDefault();
+            let modal = document.getElementById("modal");
+            modal.classList.add("show");
+        });
+        const modalClose = document.querySelectorAll("[data-dismiss=dialog]");
+        for (let close of modalClose){
+            close.addEventListener("click", () => {
+                modal.classList.remove("show");
+            });
+        }
+        modal.addEventListener("click", function(){
+            this.classList.remove("show");
+        });
+        modal.children[0].addEventListener("click", function(e){
+            e.stopPropagation();
+        });
+        
         var doing = false;
-        /*var spin = [new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3"), new Audio("res/sounds/spin.mp3")];
-        var coin = [new Audio("res/sounds/coin.mp3"), new Audio("res/sounds/coin.mp3"), new Audio("res/sounds/coin.mp3")]
-        var win = new Audio("res/sounds/win.mp3");
-        var lose = new Audio("res/sounds/lose.mp3");
-        var audio = false;*/
-        let status = document.getElementById("status")
+        let status = document.getElementById("status");
         var info = true;
         let credit = 100;
+        let gain = 0;
+        updateGain();
         updateCredit();
 
         function updateCredit(){
             const credits = document.getElementById("credit");
             credits.innerHTML = `<h2>Vos crédits : ${credit}</h2>`;
-}
+            if (credit < 0){
+                alert("Vous n'avez plus assez de crédit");
+            }
+        }
+
+        function updateGain(){
+            const gains = document.getElementById("gain");
+            gains.innerHTML = `<h2>Gain : ${gain} </h2>`;
+        }
 
         function doSlot() {
-            credit = credit - 1;
+            let bet = document.getElementById("bet").value;
+            console.log("mise de départ", bet);
+            credit = credit - bet;
             updateCredit();
             if (doing) { return null; }
             doing = true;
@@ -54,15 +224,14 @@
             var i1 = 0;
             var i2 = 0;
             var i3 = 0;
-            /*var sound = 0*/
-            status.innerHTML = "JEU EN COURS"
+
+            status.innerHTML = "JEU EN COURS";
             slot1 = setInterval(spin1, 50);
             slot2 = setInterval(spin2, 50);
             slot3 = setInterval(spin3, 50);
             function spin1() {
                 i1++;
                 if (i1 >= numeberSlot1) {
-                    /*coin[0].play()*/
                     clearInterval(slot1);
                     return null;
                 }
@@ -75,7 +244,6 @@
             function spin2() {
                 i2++;
                 if (i2 >= numeberSlot2) {
-                    /*coin[1].play()*/
                     clearInterval(slot2);
                     return null;
                 }
@@ -88,7 +256,6 @@
             function spin3() {
                 i3++;
                 if (i3 >= numeberSlot3) {
-                    /*coin[2].play()*/
                     clearInterval(slot3);
                     testWin();
                     return null;
@@ -97,11 +264,6 @@
                 if (slotTile.className == "a9") {
                     slotTile.className = "a0";
                 }
-                /*sound++;
-                if (sound == spin.length) {
-                    sound = 0;
-                }
-                spin[sound].play();*/
                 slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
             }
         }
@@ -110,116 +272,94 @@
             var slot1 = document.getElementById("slot1").className
             var slot2 = document.getElementById("slot2").className
             var slot3 = document.getElementById("slot3").className
-            const gain = document.getElementById("gain");
+            let bet = document.getElementById("bet").value;
             var coin = 0;
 
             if((slot1 == "a1" && slot2 == "a1" && slot3 !== "a1") || (slot1 == "a1" && slot3 == "a1" && slot2 !== "a1") || (slot2 == "a1" && slot3 == "a1" && slot1 !== "a1"))  {
-                status.innerHTML = "Gain 10 coins";
-                coin = 10;
+                status.innerHTML = "Gain x 1";
+                coin = 1;
             } 
             else if (slot1 == "a1" && slot2 == "a1" && slot3 == "a1") {
-                status.innerHTML = "Gain 20 coins";
-                coin = 100;
+                status.innerHTML = "Gain x 5";
+                coin = 5;
             }
             else if ((slot1 == "a2" && slot2 == "a2" && slot3 !== "a2") || (slot1 == "a2" && slot3 == "a2" && slot2 !== "a2") || (slot2 == "a2" && slot3 == "a2" && slot1 !== "a2")) {
-                status.innerHTML = "Gain petite cerise";
-                coin = 20;
+                status.innerHTML = "Gain x 2";
+                coin = 2;
             }
             else if (slot1 == "a2" && slot2 == "a2" && slot3 == "a2") {
-                status.innerHTML = "Gain grosse cerise";
-                coin = 200;
+                status.innerHTML = "Gain x 10";
+                coin = 10;
             }
             else if ((slot1 == "a3" && slot2 == "a3" && slot3 !== "a3") || (slot1 == "a3" && slot3 == "a3" && slot2 !== "a3") || (slot2 == "a3" && slot3 == "a3" && slot1 !== "a3")) {
-                status.innerHTML = "Gain petite pièce";
-                coin = 30;
+                status.innerHTML = "Gain x 5";
+                coin = 5;
             }
             else if (slot1 == "a3" && slot2 == "a3" && slot3 == "a3") {
-                status.innerHTML = "Gain grosse pièce";
-                coin = 300;
+                status.innerHTML = "Gain x 25";
+                coin = 25;
             }
             else if ((slot1 == "a4" && slot2 == "a4" && slot3 !== "a4") || (slot1 == "a4" && slot3 == "a4" && slot2 !== "a4") || (slot2 == "a4" && slot3 == "a4" && slot1 !== "a4")) {
-                status.innerHTML = "Gain petite couronne";
-                coin = 40;
+                status.innerHTML = "Gain x 10";
+                coin = 10;
             }
             else if (slot1 == "a4" && slot2 == "a4" && slot3 == "a4") {
-                status.innerHTML = "Gain grosse couronne";
-                coin = 400;
-            }
-            else if ((slot1 == "a5" && slot2 == "a5" && slot3 !== "a5") || (slot1 == "a5" && slot3 == "a5" && slot2 !== "a5") || (slot2 == "a5" && slot3 == "a5" && slot1 !== "a5")) {
-                status.innerHTML = "Gain petite diamant";
+                status.innerHTML = "Gain x 50";
                 coin = 50;
             }
-            else if (slot1 == "a5" && slot2 == "a5" && slot3 == "a5") {
-                status.innerHTML = "Gain grosse diamant";
-                coin = 500;
+            else if ((slot1 == "a5" && slot2 == "a5" && slot3 !== "a5") || (slot1 == "a5" && slot3 == "a5" && slot2 !== "a5") || (slot2 == "a5" && slot3 == "a5" && slot1 !== "a5")) {
+                status.innerHTML = "Gain x 15";
+                coin = 15;
             }
-            else if ((slot1 == "a6" && slot2 == "a6" && slot3 !== "a6") || (slot1 == "a6" && slot3 == "a6" && slot2 !== "a6") || (slot2 == "a6" && slot3 == "a6" && slot1 !== "a6")) {
-                status.innerHTML = "Gain petite coeur";
+            else if (slot1 == "a5" && slot2 == "a5" && slot3 == "a5") {
+                status.innerHTML = "Gain x 75";
                 coin = 75;
             }
-            else if (slot1 == "a6" && slot2 == "a6" && slot3 == "a6") {
-                status.innerHTML = "Gain grosse coeur";
-                coin = 750;
+            else if ((slot1 == "a6" && slot2 == "a6" && slot3 !== "a6") || (slot1 == "a6" && slot3 == "a6" && slot2 !== "a6") || (slot2 == "a6" && slot3 == "a6" && slot1 !== "a6")) {
+                status.innerHTML = "Gain 25";
+                coin = 25;
             }
-            else if ((slot1 == "a7" && slot2 == "a7" && slot3 !== "a7") || (slot1 == "a7" && slot3 == "a7" && slot2 !== "a7") || (slot2 == "a7" && slot3 == "a7" && slot1 !== "a7")) {
-                status.innerHTML = "Gain petite tete";
+            else if (slot1 == "a6" && slot2 == "a6" && slot3 == "a6") {
+                status.innerHTML = "Gain x 100";
                 coin = 100;
             }
+            else if ((slot1 == "a7" && slot2 == "a7" && slot3 !== "a7") || (slot1 == "a7" && slot3 == "a7" && slot2 !== "a7") || (slot2 == "a7" && slot3 == "a7" && slot1 !== "a7")) {
+                status.innerHTML = "Gain x 50";
+                coin = 50;
+            }
             else if (slot1 == "a7" && slot2 == "a7" && slot3 == "a7") {
-                status.innerHTML = "Gain grosse tete";
-                coin = 1000;
+                status.innerHTML = "Gain x 200";
+                coin = 200;
             }
             else if ((slot1 == "a8" && slot2 == "a8" && slot3 !== "a8") || (slot1 == "a8" && slot3 == "a8" && slot2 !== "a8") || (slot2 == "a8" && slot3 == "a8" && slot1 !== "a8")) {
-                status.innerHTML = "Gain petite étoile";
-                coin = 250;
+                status.innerHTML = "Gain x 100";
+                coin = 100;
             }
             else if (slot1 == "a8" && slot2 == "a8" && slot3 == "a8") {
-                status.innerHTML = "Gain grosse étoile";
-                coin = 2500;
+                status.innerHTML = "Gain x 500";
+                coin = 500;
             }
             else if ((slot1 == "a9" && slot2 == "a9" && slot3 !== "a9") || (slot1 == "a9" && slot3 == "a9" && slot2 !== "a9") || (slot2 == "a9" && slot3 == "a9" && slot1 !== "a9")) {
-                status.innerHTML = "Gain petite Jackpot";
-                coin = 1000;
+                status.innerHTML = "Mini Jackpot";
+                coin = 250;
             }
             else if (slot1 == "a9" && slot2 == "a9" && slot3 == "a9") {
                 status.innerHTML = "JACKPOT";
-                coin = 10000;
+                coin = 1000;
             } 
             else {
                 status.innerHTML = "PERDU!";
                 
             }
-            gain.innerHTML = `<h2>Gain ${coin}</h2>`;
-            credit = credit + coin;
+            
+            var win = bet * coin;
+            credit = credit + win;
+            gain = win;
+            updateGain();
             updateCredit();
             doing = false;
             
         }
-
-        /*function toggleAudio() {
-            if (!audio) {
-                audio = !audio;
-                for (var x of spin) {
-                    x.volume = 0.5;
-                }
-                for (var x of coin) {
-                    x.volume = 0.5;
-                }
-                win.volume = 1.0;
-                lose.volume = 1.0;
-            } else {
-                audio = !audio;
-                for (var x of spin) {
-                    x.volume = 0;
-                }
-                for (var x of coin) {
-                    x.volume = 0;
-                }
-                win.volume = 0;
-                lose.volume = 0;
-            }
-            document.getElementById("audio").src = "res/icons/audio" + (audio ? "On" : "Off") + ".png";
-        }*/
 
         function randomInt(min, max) {
             return Math.floor((Math.random() * (max - min + 1)) + min);
